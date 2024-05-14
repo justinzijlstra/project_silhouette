@@ -61,7 +61,6 @@
     <Compile Include="Assets\ThirdParty\Aran\TekenPackage\Drawable.cs" />
     <Compile Include="Assets\Silhouette\Scripts\Character.cs" />
     <Compile Include="Assets\Silhouette\Scripts\WebCamera.cs" />
-    <Compile Include="Assets\RamonSwitchScene.cs" />
     <Compile Include="Assets\ThirdParty\FiducialFolder\TUIOConnector\TuioClient.cs" />
     <Compile Include="Assets\Silhouette\Scripts\Flock.cs" />
     <Compile Include="Assets\ThirdParty\FiducialFolder\TUIOConnector\TuioListener.cs" />
@@ -102,8 +101,6 @@
     <Compile Include="Assets\ThirdParty\FiducialFolder\TUIOConnector\OSCMessage.cs" />
     <Compile Include="Assets\ThirdParty\Aran\TekenPackage\StoryScopePen.cs" />
     <Compile Include="Assets\Silhouette\Scripts\JZTurnSpriteCounter.cs" />
-    <Compile Include="Assets\restartUnity.cs" />
-    <Compile Include="Assets\Utilities\TestScipt.cs" />
     <Compile Include="Assets\JZSpriteParticle.cs" />
     <Compile Include="Assets\Silhouette\Scripts\GlobalFlock.cs" />
     <Compile Include="Assets\ThirdParty\FiducialFolder\TUIOConnector\OSCPacket.cs" />

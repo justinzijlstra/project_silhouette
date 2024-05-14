@@ -33,6 +33,7 @@ public class JZLoadFromExternalV2 : MonoBehaviour
 
     void Start()
     {
+
         path = filesLocation + folder;
         GetComponentInChildren<FiducialController>().MarkerID = int.Parse(gameObject.name.Substring(gameObject.name.Length - 2));
         //Check if video or Texture
@@ -50,8 +51,15 @@ public class JZLoadFromExternalV2 : MonoBehaviour
             jzrenderer = GetComponent<Renderer>();
             //extension = "png";
         }
-       //StartCoroutine("LoadAll", Directory.GetFiles(filesLocation, "*." + extension, SearchOption.AllDirectories));
-        StartCoroutine(LoadAll(Directory.GetFiles(path)));
+        //StartCoroutine("LoadAll", Directory.GetFiles(filesLocation, "*." + extension, SearchOption.AllDirectories));
+        try
+        {
+            StartCoroutine(LoadAll(Directory.GetFiles(path)));
+        }
+        catch (System.Exception)
+        {
+            Debug.Log("cant open" + path + "this is prolly unity editor huh? nvm then "); 
+        }
     }
 
     private void Update()

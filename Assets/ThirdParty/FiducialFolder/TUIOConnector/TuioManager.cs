@@ -119,23 +119,30 @@ namespace UniducialLibrary
             if (this.m_Client.isConnected())
             {
 
-              //  Debug.Log("Listening to TUIO port " + m_Client.getPort() + ".");
+              Debug.Log("Listening to TUIO port " + m_Client.getPort() + ".");
             }
             else
             {
-                Debug.LogError("Failed to connect to TUIO port " + m_Client.getPort() + ".");
+               Debug.LogError("Failed to connect to TUIO port " + m_Client.getPort() + ".");
             }
+
         }
 
         public bool IsMarkerAlive(int in_MarkerID)
         {
-
-            foreach (TuioObject tuioObject in this.m_TUIOObjects)
+            try
             {
-                if (tuioObject.getSymbolID() == in_MarkerID)
+                foreach (TuioObject tuioObject in this.m_TUIOObjects)
                 {
-                    return true;
+                    if (tuioObject.getSymbolID() == in_MarkerID)
+                    {
+                        return true;
+                    }
                 }
+            }
+            catch (System.Exception)
+            {
+                Debug.Log("too many fiducials at once");
             }
 
             return false;
@@ -144,14 +151,23 @@ namespace UniducialLibrary
 
         public TuioObject GetMarker(int in_MarkerID)
         {
-            foreach (TuioObject tuioObject in this.m_TUIOObjects)
+            try
             {
-                if (tuioObject.getSymbolID() == in_MarkerID)
+                foreach (TuioObject tuioObject in this.m_TUIOObjects)
                 {
+                    if (tuioObject.getSymbolID() == in_MarkerID)
+                    {
 
-                    return tuioObject;
+                        return tuioObject;
+                    }
+
                 }
 
+            }
+            catch (System.Exception)
+            {
+
+                Debug.Log("couldnt get marker ID");
             }
 
             return null;
@@ -169,7 +185,7 @@ namespace UniducialLibrary
                 int port = m_Client.getPort();
                 m_Client.removeTuioListener(this);
                 m_Client.disconnect();
-                //Debug.Log("Stopped listening to TUIO port " + port + ".");
+                Debug.Log("Stopped listening to TUIO port " + port + ".");
             }
         }
 
